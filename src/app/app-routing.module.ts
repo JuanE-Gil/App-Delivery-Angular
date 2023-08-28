@@ -17,11 +17,11 @@ const routes: Routes = [
     component: CarritoComponent,
   },
   {
-    path: 'rubro',
+    path: 'categoria/:id',
     component: RubroComponent,
   },
   {
-    path: 'articulo',
+    path: 'articulo/:id',
     component: ArticuloComponent,
   },
   {

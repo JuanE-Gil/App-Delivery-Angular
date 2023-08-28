@@ -6,6 +6,6 @@ import { Injectable, WritableSignal, signal } from '@angular/core';
 export class HeaderService {
   constructor() {}
 
-  titulo = signal('Título');
+  titulo = signal('');
   extendido: WritableSignal<boolean> = signal(false);
 }

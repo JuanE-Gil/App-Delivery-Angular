@@ -1,0 +1,7 @@
+#categoria-container{
+  margin: 20px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  gap: 20px 0;
+}
