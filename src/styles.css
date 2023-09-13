@@ -3,7 +3,6 @@
    v2.0 | 20110126
    License: none (public domain)
 */
-
 html,
 body,
 div,
@@ -152,6 +151,7 @@ h5,
 h6 {
   font-weight: bold;
 }
+
 .margen-chico {
   margin: 10px;
 }
@@ -168,4 +168,4 @@ h6 {
 .flex-apart {
   display: flex;
   justify-content: space-between;
-}
+}/*# sourceMappingURL=styles.css.map */

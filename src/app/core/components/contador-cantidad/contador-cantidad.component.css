@@ -1,13 +1,9 @@
-@use "../../../../assets/styles/variables.scss";
-
-$altura: 30px;
-
 #container {
   display: flex;
   justify-content: space-between;
   width: 80px;
-  height: $altura;
-  background-color: variables.$color-principal-claro;
+  height: 30px;
+  background-color: #f7e5f5;
   border-radius: 10px;
   overflow: hidden;
   border: 1px solid black;
@@ -16,10 +12,10 @@ $altura: 30px;
 button {
   border-color: unset;
   font-weight: bold;
-  background-color: variables.$color-principal;
+  background-color: #e8b0e1;
   padding: 0 10px;
 }
 
-span{
-  line-height: $altura;
-}
+span {
+  line-height: 30px;
+}/*# sourceMappingURL=contador-cantidad.component.css.map */

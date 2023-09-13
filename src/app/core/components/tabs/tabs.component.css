@@ -1,0 +1,25 @@
+#container {
+  display: flex;
+  justify-content: space-around;
+  background-color: #e5e5e5;
+  border-radius: 10px 10px 0 0;
+  overflow: hidden;
+  height: 80px;
+}
+
+.tab {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 200ms ease-in-out;
+}
+.tab svg {
+  display: block;
+  margin: auto;
+  transition: 200ms ease-in-out;
+}
+
+.seleccionado {
+  background-color: #e8b0e1;
+}/*# sourceMappingURL=tabs.component.css.map */

@@ -1,0 +1,101 @@
+#tarjeta-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.tarjeta-producto-container {
+  display: flex;
+  height: 100px;
+  background-color: #f7e5f5;
+}
+.tarjeta-producto-container > * {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+#izq {
+  position: relative;
+  width: 35%;
+  background-color: bisque;
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+}
+#izq > div {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+}
+#izq > div img {
+  height: 20px;
+  background-color: #b6ffb4;
+  border-radius: 50%;
+}
+
+#centro {
+  width: 55%;
+}
+
+#der {
+  width: 10%;
+  align-items: flex-end;
+}
+
+#borrar {
+  background-color: unset;
+  border: unset;
+  cursor: pointer;
+  padding: 0;
+}
+
+#mas {
+  font-size: x-large;
+  text-decoration: none;
+  color: black;
+  background-color: #f7e5f5;
+  padding: 15px 30px;
+  border-radius: 10px;
+}
+
+#informacion {
+  font-size: larger;
+}
+
+#envios-container {
+  background-color: #f7e5f5;
+  border-radius: 10px;
+  margin: 10px 0;
+  padding: 10px;
+  align-items: center;
+}
+#envios-container h4 {
+  font-size: larger;
+}
+
+#montos {
+  text-align: end;
+}
+
+#totales > div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+#enviar {
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+  font-size: larger;
+  background-color: #e8b0e1;
+  border: unset;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 10px;
+  font-weight: bold;
+}/*# sourceMappingURL=carrito.component.css.map */

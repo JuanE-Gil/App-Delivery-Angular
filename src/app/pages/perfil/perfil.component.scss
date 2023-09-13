@@ -1,0 +1,36 @@
+@use "./../../../assets/styles/variables.scss";
+
+* {
+  font-size: large;
+}
+
+form,
+form div {
+  display: flex;
+  flex-direction: column;
+}
+
+form {
+  gap: 20px;
+}
+
+form div {
+  gap: 5px;
+}
+
+button {
+  height: 40px;
+  font-weight: bold;
+  background-color: variables.$color-principal-claro;
+  border: 1px solid black;
+  border-radius: 5px;
+  cursor: pointer;
+
+  &:disabled {
+    background-color: gray;
+  }
+}
+
+.error{
+  color: red;
+}
