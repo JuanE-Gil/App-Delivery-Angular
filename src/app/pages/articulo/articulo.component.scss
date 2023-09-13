@@ -34,8 +34,6 @@ ul {
 
 .margen-chico > *{
   margin-bottom: 10px;
-
-
 }
 
 textarea{
@@ -43,9 +41,13 @@ textarea{
   border-radius: variables.$border-radius-chico;
   border: unset;
   background-color: variables.$color-principal-claro;
-  width: 100%;
   margin-top: 10px;
-  resize: none;
+  resize: vertical;
+  width: calc(100% - 30px);
+  padding: 15px;
+  &:focus{
+    outline: none;
+  }
 }
 
 #cantidad-container{
