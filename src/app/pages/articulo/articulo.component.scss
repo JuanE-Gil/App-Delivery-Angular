@@ -40,11 +40,12 @@ ul {
 
 textarea{
   display: block;
-  border-radius: 20px;
+  border-radius: variables.$border-radius-chico;
   border: unset;
   background-color: variables.$color-principal-claro;
   width: 100%;
   margin-top: 10px;
+  resize: none;
 }
 
 #cantidad-container{
@@ -55,7 +56,7 @@ textarea{
 
 button{
   width: 100%;
-  border-radius: 20px;
+  border-radius: variables.$border-radius-chico;
   border: unset;
   background-color: variables.$color-principal-claro;
   font-size: larger;

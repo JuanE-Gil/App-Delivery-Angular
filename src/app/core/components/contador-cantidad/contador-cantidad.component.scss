@@ -8,7 +8,7 @@ $altura: 30px;
   width: 80px;
   height: $altura;
   background-color: variables.$color-principal-claro;
-  border-radius: 10px;
+  border-radius: variables.$border-radius-chico;
   overflow: hidden;
   border: 1px solid black;
 }

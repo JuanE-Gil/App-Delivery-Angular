@@ -4,7 +4,7 @@ header{
   position: relative;
   height: 80px;
   background-color: variables.$color-principal;
-  border-radius: 0 0 15px 15px;
+  border-radius: 0 0 variables.$border-radius-mediano variables.$border-radius-mediano;
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -24,7 +24,7 @@ header::before{
   opacity: 0;
   z-index: -1;
   transition: 500ms;
-  border-radius: 0 0 15px 15px;
+  border-radius: 0 0 variables.$border-radius-mediano variables.$border-radius-mediano;
 }
 
 header.extendido::before{

@@ -4,7 +4,7 @@
   alt="{{ producto?.nombre }}"
 />
 
-<div class="margen-chico">
+<section class="margen-chico">
   <ul>
     <span>Ingrediente: </span>
     <li *ngFor="let ingrediente of producto?.ingredientes">
@@ -43,4 +43,4 @@
   </div>
 
   <button (click)="agregarAlCarrito()">Agregar al carrito</button>
-</div>
+</section>

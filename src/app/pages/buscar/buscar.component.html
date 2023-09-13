@@ -1,3 +1,4 @@
+<section>
 <form #buscarForm="ngForm" (change)="buscar()">
   <div id="barra-busqueda">
     <img src="./../../../assets/icons/lupa.svg" alt="Lupa" />
@@ -28,10 +29,17 @@
     </div>
   </div>
 </form>
-<div id="contenedor-productos">
-
+<div id="contenedor-productos" *ngIf="productos().length !== 0, else sinResultado">
   <app-tarjeta-producto
-  *ngFor="let producto of productos"
+  *ngFor="let producto of productos()"
   [producto]="producto"
+  [routerLink]="['/articulo',producto.id]"
   ></app-tarjeta-producto>
 </div>
+
+<ng-template #sinResultado>
+  <h2>Tu busqueda no arrojó ningún resultado</h2>
+</ng-template>
+
+
+</section>

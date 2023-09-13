@@ -1,3 +1,5 @@
+@use "./assets/styles/variables.scss";
+
 /* You can add global styles to this file, and also import other style files */
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
@@ -113,6 +115,7 @@ body {
   width: 100vw;
   overflow-x: hidden;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: variables.$color-texto;
 }
 
 ol,

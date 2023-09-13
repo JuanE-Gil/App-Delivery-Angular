@@ -4,7 +4,7 @@
   height: 80px;
   display: flex;
   background-color: variables.$color-principal-claro;
-  border-radius: 10px;
+  border-radius: variables.$border-radius-chico;
   overflow: hidden;
 }
 

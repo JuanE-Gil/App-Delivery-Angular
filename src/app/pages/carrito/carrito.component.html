@@ -1,100 +1,96 @@
-<ng-container *ngIf="cartService.carrito.length !== 0, else sinCarrito">
-<!-- *Contenedor de tarjetas -->
-<div id="tarjeta-container" class="margen-chico">
-  <!-- *Tarjetas -->
-  <div class="tarjeta-producto-container" *ngFor="let producto of cartService.carrito; index as i">
-    <ng-container *ngIf="productosCarrito[i]">
-      <!-- *Imagen del producto -->
-      <div id="izq" [ngStyle]="{
-          'background-image': 'url(' + productosCarrito[i].fotoUrl + ')'
-        }">
-        <div>
-          <img *ngIf="productosCarrito[i].esVegano" src="./../../../assets/icons/vegano.svg" alt="vegano" />
-          <img *ngIf="productosCarrito[i].esCeliaco" src="./../../../assets/icons/celiaco.png" alt="celiaco" />
-        </div>
+<ng-container *ngIf="cartService.carrito.length !== 0; else sinCarrito">
+  <section>
+    <!-- *Contenedor de tarjetas -->
+    <div id="tarjeta-container" class="margen-chico">
+      <!-- *Tarjetas -->
+      <div class="tarjeta-producto-container" *ngFor="let producto of cartService.carrito; index as i">
+        <ng-container *ngIf="productosCarrito()[i]">
+          <!-- *Imagen del producto -->
+          <div id="izq" [ngStyle]="{
+              'background-image': 'url(' + productosCarrito()[i].fotoUrl + ')'
+            }">
+            <div>
+              <img *ngIf="productosCarrito()[i].esVegano" src="./../../../assets/icons/vegano.svg" alt="vegano" />
+              <img *ngIf="productosCarrito()[i].esCeliaco" src="./../../../assets/icons/celiaco.png" alt="celiaco" />
+            </div>
+          </div>
+
+          <!-- *Datos del producto -->
+          <div id="centro">
+            <!-- ?titulo-->
+            <p class="negrita">{{ productosCarrito()[i].nombre }}</p>
+
+            <!-- ?notas -->
+            <p *ngIf="producto.notas !== ''">{{ producto.notas }}</p>
+
+            <!-- ?cantidad -->
+            <app-contador-cantidad [CantidadInicial]="producto.cantidad" (cantidadCambiada)="
+                cambiarCantidadProducto(producto.idProducto, $event)
+              ">
+            </app-contador-cantidad>
+          </div>
+
+          <!-- *Opciones y costo -->
+          <div id="der">
+            <!-- ?botón eliminar -->
+            <button id="borrar" (click)="eliminarProducto(producto.idProducto)">
+              <img src="./../../assets/icons/borrar.png" alt="X" />
+            </button>
+
+            <!-- ?costo -->
+            <p class="negrita">${{ productosCarrito()[i].precio }}</p>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+
+    <!-- *nuevo producto-->
+    <div class="flex-center">
+      <a id="mas" [routerLink]="['']" routerLinkActive="router-link-active">+</a>
+    </div>
+  </section>
+
+  <section id="informacion" class="margen-chico">
+    <h3>Direccion de envió</h3>
+    <div id="envios-container" class="flex-apart">
+      <div>
+        <ng-container *ngIf="perfilService.perfil(); else sinDatosEnvio">
+          <h4>{{ perfilService.perfil()!.nombre }}</h4>
+          <p>
+            {{ perfilService.perfil()!.direccion }} -
+            {{ perfilService.perfil()!.telefono }}
+          </p>
+          <p>{{ perfilService.perfil()!.detalleEntrega }}</p>
+        </ng-container>
+
+        <ng-template #sinDatosEnvio>
+          <p>Ingresar tus datos de envió</p>
+        </ng-template>
       </div>
 
-      <!-- *Datos del producto -->
-      <div id="centro">
-        <!-- ?titulo-->
-        <p class="negrita">{{ productosCarrito[i].nombre }}</p>
+      <div>
+        <a [routerLink]="['/perfil']" routerLinkActive="router-link-active">
+          <img id="boton-editar-direccion" src="./../../../assets/icons/lapiz.png" alt="editar"  />
+        </a>
+      </div>
+    </div>
 
-        <!-- ?notas -->
-        <p *ngIf="producto.notas !== ''">{{ producto.notas }}</p>
-
-        <!-- ?cantidad -->
-        <app-contador-cantidad [CantidadInicial]="producto.cantidad" (cantidadCambiada)="
-            cambiarCantidadProducto(producto.idProducto, $event)
-          ">
-        </app-contador-cantidad>
+    <div id="totales" class="flex-apart">
+      <div>
+        <p class="negrita">Subtotal</p>
+        <p>Delivery</p>
+        <p class="negrita">Total</p>
       </div>
 
-      <!-- *Opciones y costo -->
-      <div id="der">
-        <!-- ?botón eliminar -->
-        <button id="borrar" (click)="eliminarProducto(producto.idProducto)">
-          <img src="./../../assets/icons/borrar.png" alt="X" />
-        </button>
-
-        <!-- ?costo -->
-        <p class="negrita">${{ productosCarrito[i].precio }}</p>
+      <div id="montos">
+        <p class="negrita">${{ subtotal }}</p>
+        <p>${{ this.configService.configuracion().costoEnvio }}</p>
+        <p class="negrita">${{ total }}</p>
       </div>
-    </ng-container>
-  </div>
-</div>
-
-<!-- *nuevo producto-->
-<div class="flex-center">
-  <a id="mas" [routerLink]="['']" routerLinkActive="router-link-active">+</a>
-</div>
-
-<section id="informacion" class="margen-chico">
-  <h3>Direccion de envió</h3>
-  <div id="envios-container" class="flex-apart">
-    <div>
-      <ng-container *ngIf="perfilService.perfil(); else sinDatosEnvio">
-        <h4>{{ perfilService.perfil()!.nombre }}</h4>
-        <p>
-          {{ perfilService.perfil()!.direccion }} -
-          {{ perfilService.perfil()!.telefono }}
-        </p>
-        <p>{{ perfilService.perfil()!.detalleEntrega }}</p>
-      </ng-container>
-
-      <ng-template #sinDatosEnvio>
-        <p>Ingresar tus datos de envió</p>
-      </ng-template>
     </div>
 
-    <div>
-      <a [routerLink]="['/perfil']" routerLinkActive="router-link-active">
-        <img src="./../../../assets/icons/lapiz.png" alt="editar" />
-      </a>
-    </div>
-  </div>
-
-  <div id="totales" class="flex-apart">
-    <div>
-      <p class="negrita">Subtotal</p>
-      <p>Delivery</p>
-      <p class="negrita">Total</p>
-    </div>
-
-    <div id="montos">
-      <p class="negrita">
-        $<span>{{ subtotal }}</span>
-      </p>
-      <p>
-        $<span>{{ delivery }}</span>
-      </p>
-      <p class="negrita">
-        $<span>{{ total }}</span>
-      </p>
-    </div>
-  </div>
-
-  <button id="enviar" (click)="enviarMensaje()">Enviar Mensaje</button>
-</section>
+    <button id="enviar" [disabled]="!perfilService.perfil()" (click)="enviarMensaje()">Realizar pedido</button>
+  </section>
 </ng-container>
 
 <ng-template #sinCarrito>

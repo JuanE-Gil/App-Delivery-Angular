@@ -10,7 +10,7 @@ h2 {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  border-radius: 10px;
+  border-radius: variables.$border-radius-chico;
   overflow: hidden;
 }
 
@@ -33,7 +33,7 @@ h2 {
   background-color: bisque;
   background-size: cover;
   background-position: center;
-  border-radius: 10px;
+  border-radius: variables.$border-radius-chico;
 
   > div {
     position: absolute;
@@ -70,7 +70,7 @@ h2 {
   color: black;
   background-color: variables.$color-principal-claro;
   padding: 15px 30px;
-  border-radius: 10px;
+  border-radius: variables.$border-radius-chico;
 }
 
 #informacion {
@@ -79,7 +79,7 @@ h2 {
 
 #envios-container {
   background-color: variables.$color-principal-claro;
-  border-radius: 10px;
+  border-radius: variables.$border-radius-chico;
   margin: 10px 0;
   padding: 10px;
   align-items: center;
@@ -108,13 +108,17 @@ h2 {
   border: unset;
   cursor: pointer;
   padding: 15px;
-  border-radius: 10px;
+  border-radius: variables.$border-radius-chico;
   font-weight: bold;
+}
+
+#boton-editar-direccion{
+  padding-right: 5px;
 }
 
 dialog {
   background-color: variables.$color-principal-claro;
-  border-radius: 10px;
+  border-radius: variables.$border-radius-chico;
   border: unset;
   box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.156);
 
